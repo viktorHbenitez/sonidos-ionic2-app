@@ -21,4 +21,24 @@ export class HomePage {
 
   }
 
+
+  reproducir(animal : Animal){
+    console.log(animal);
+
+    //Creamos un obj audio y asignamos a su propiedas de src el sonido del animal
+    let audio = new Audio();
+    audio.src = animal.audio;
+
+    //Generar el sonido
+    audio.load();
+    audio.play();
+
+    animal.reproduciendo = true;
+
+    setTimeout( () => animal.reproduciendo = false, animal.duracion * 1000 );
+    // setTimeout( () => cambiaValor, TiempoDuracion * 1000);
+
+  }
+
+
 }
